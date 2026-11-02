@@ -3,7 +3,7 @@ const cfg = window.OFFER;
 const main = document.querySelector('#main');
 const storageKey = 'fernanda-21-quiz-v7';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const media = (name, alt, extra='') => `<img src="/media/${name}.webp" alt="${esc(alt)}" loading="lazy" decoding="async" ${extra}>`;
+const media = (name, alt, extra='') => `<img src="${String(name).startsWith('http') ? esc(name) : `/media/${name}.webp`}" alt="${esc(alt)}" loading="lazy" decoding="async" ${extra}>`;
 const option = (label, image, emoji) => ({label,image,emoji});
 const choiceEmoji = ['🎯','💪','🤸','🌿','🧘','✨','🌸','🔥','🌞','🌊','🪷','🏃‍♀️','🙌','💖','🌈','⭐','🍃','🦋','🌻','🎵','☀️','🫶','🌺','🧡'];
 const questions = [
@@ -26,7 +26,7 @@ const questions = [
  {id:'sleep',type:'single',title:'Quantas horas dormes, em média, por noite?',options:['Menos de 5 horas','Entre 5 e 6 horas','Entre 7 e 8 horas','Mais de 8 horas']},
  {id:'energy',type:'single',title:'Como está a tua energia durante o dia?',options:['Costumo sentir-me cansada','Sinto uma quebra depois do almoço','Varia bastante ao longo do dia','Sinto-me disposta na maior parte do dia']},
  {id:'water',type:'single',title:'Quanto de água costumas beber por dia?',options:['Menos de 2 copos','Entre 2 e 5 copos','Entre 1 e 2 litros','Mais de 2 litros','Não costumo contar']},
- {id:'food',type:'single',title:'Qual destas opções se aproxima mais da tua alimentação?',cards:true,options:[option('Tradicional, como de tudo','food-1'),option('Carnes, peixe e ovos','food-2'),option('Vegetariana','food-3'),option('À base de plantas','food-4')]},
+ {id:'food',type:'single',title:'Qual destas opções se aproxima mais da tua alimentação?',cards:true,options:[option('Tradicional, como de tudo','food-1'),option('Carnes, peixe e ovos','food-2'),option('Vegetariana','food-3'),option('Comidas rápidas','https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-LRXKXbeoGbr2MP6kO64OXgtUQ1MKrT.png')]},
  {id:'motivation',type:'single',title:'Qual é o teu maior motivo para começar?',options:['Sentir-me mais confiante','Cuidar de mim e da minha disposição','Sentir-me melhor nas minhas roupas','Voltar a reservar tempo para mim','Criar um hábito que consiga manter']}, {id:'feelings',type:'single',title:"Como te sentes em relação ao teu corpo e às tuas roupas ultimamente?",sub:"Escolhe a opção com que mais te identificas.",options:[option("Frustrada porque as minhas roupas favoritas já não me servem bem",null,"👗"),option("Sem energia e com a sensação de barriga inchada no final do dia",null,"😮💨"),option("Insegura com a falta de tonificação",null,"🪞")]}, {id:'break-feelings',type:'break',title:"Obrigada por partilhares 💛",sub:"A maioria das nossas alunas sentia exactamente o mesmo antes de começar o Desafio de 21 Dias. Vamos montar o teu plano a pensar nisso."},
  {id:'height',type:'measure',title:'Qual é a tua altura?',sub:'Indica a tua altura aproximada.',unit:'cm',altUnit:'pol',min:100,max:230,value:165},
  {id:'minutes',type:'single',title:'Quanto tempo gostarias de reservar por dia?',sub:'Escolhe o tempo que realmente cabe na tua rotina.',cards:true,options:[option('10 minutos','minutes-10'),option('20 minutos','minutes-20'),option('30 minutos','minutes-30'),option('60 minutos','minutes-60')]},
