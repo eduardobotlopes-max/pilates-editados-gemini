@@ -3,7 +3,7 @@ const cfg = window.OFFER;
 const main = document.querySelector('#main');
 const storageKey = 'fernanda-21-quiz-v7';
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const media = (name, alt, extra='') => `<img src="${String(name).startsWith('http') ? esc(name) : `/media/${name}.webp`}" alt="${esc(alt)}" loading="lazy" decoding="async" ${extra}>`;
+const media = (name, alt, extra='') => `<img src="${String(name).startsWith('http') ? esc(name) : `/media/${name}.webp`}" alt="${esc(alt)}" loading="lazy" decoding="async" fetchpriority="low" ${extra}>`;
 const option = (label, image, emoji) => ({label,image,emoji});
 const choiceEmoji = ['🎯','💪','🤸','🌿','🧘','✨','🌸','🔥','🌞','🌊','🪷','🏃‍♀️','🙌','💖','🌈','⭐','🍃','🦋','🌻','🎵','☀️','🫶','🌺','🧡'];
 const questions = [
