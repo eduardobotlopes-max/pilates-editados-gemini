@@ -1,0 +1,6 @@
+{
+  "name": "Project Workspace",
+  "description": "Ambiente para edição, teste e deploy de projetos web.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
